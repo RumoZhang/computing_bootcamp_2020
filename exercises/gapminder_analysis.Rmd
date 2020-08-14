@@ -38,12 +38,12 @@ for the variables in `gap`?
 
 Variable | Type
 ---------|----------
-Var 1    |
-Var 2    |
-Var 3    |
-Var 4    |
-Var 5    |
-Var 6    |
+Var 1    |Character
+Var 2    |Character
+Var 3    |Double
+Var 4    |Double
+Var 5    |Double
+Var 6    |Double
 
 ### Exercise 2
 
@@ -66,6 +66,7 @@ color of the points to be red and connect them with a solid black line.
 
 ```{r ex2_part2}
 # create plot here
+gap %>% filter(country == 'Canada') %>% ggplot(aes(gdpPercap, lifeExp)) + geom_point(col = 'red') + geom_line()
 ```
 
 **Part 3**
@@ -75,6 +76,7 @@ countries in Africa in 1992. Set the color to be purple.
 
 ```{r ex2_part3}
 # create plot here
+gap %>% filter(continent == 'Africa') %>% ggplot(aes(gdpPercap,lifeExp)) + geom_point(col = 'purple')
 ```
 
 ### Exercise 3
@@ -98,6 +100,7 @@ two continents.
 
 ```{r ex3_part1}
 # create plot here
+gap %>% filter(continent %in% c('Africa', 'Europe'), year == 1992) %>% ggplot(aes(gdpPercap,lifeExp,col = continent)) + geom_point()
 ```
 
 **Part 2**
@@ -115,6 +118,7 @@ Fill the boxplots with color `darkgreen`.
 
 ```{r ex3_part2}
 # create plot here
+gap %>% filter(year == 2007) %>% ggplot(aes(continent, gdpPercap)) + geom_boxplot(fill = 'darkgreen')
 ```
 
 
